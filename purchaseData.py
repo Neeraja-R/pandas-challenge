@@ -8,13 +8,27 @@ purchaseData = pd.read_csv(purchase_data)
 
 purData = pd.DataFrame(purchaseData)
 
-def playerCount():
-    totalPlayers = purData.groupby(["SN"]).count().sum()
+'''purData.head() # no errors'''
 
-def purchaseAnalys():
-    uniqueItems = purData.groupby(["Item Name"]).count().sum()
-    avgPurprice = purData.groupby(["Price"]).avg()
-    totalPur = purData.groupby((["Purchase ID"]).sum()) + 1
-    totalRev = purData.groupby(["Price"]).sum()
-print (purchaseAnalys)
+
+
+totalPlayers = purData.groupby(["SN"]).count().sum()
+
+uniqueItems = purData.groupby(["Item Name"]).count().sum()
+avgPurprice = purData.groupby(["Price"]).mean()
+totalPur = purData.len()
+totalRev = purData.groupby(["Price"]).sum()
+
+return (totalPlayers)
+
+
+
+
+def add_numbers(a,b):
+    output = a+b
+    return(output)
+
+
+output = add_numbers(5,4)
+print(output)
     
