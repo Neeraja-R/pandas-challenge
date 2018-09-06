@@ -10,24 +10,18 @@ purData = pd.DataFrame(purchaseData)
 
 '''purData.head() # no errors'''
 
-u_I = []
-for x in purData:
-    u_I = purData.append("Item Name").value()
-    unique_I = u_I.index.sum()
-print(unique_I)
-
-'''totalPlayers = purData["SN"].count()
+def prchAnlys()
+totalPlayers = purData["SN"].count()
     t_P = totalPlayers.sum()
     print (t_P)'''
 
-'''avgPur_price = purData["Price"].mean()
+avgPur_price = purData["Price"].mean()
     print (avgPur_price)
-    
-    totalPur = len(purData)
+
+totalPur = len(purData)
     print (totalPur)
-    
-    totalRev = purData["Price"].sum()
-    print (totalRev)'''
-
-
-
+        
+totalRev = purData["Price"].sum()
+    print (totalRev)
+        
+    print(purData["Item Name"].value_counts())
