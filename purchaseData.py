@@ -34,7 +34,13 @@ print (genData)
 
 purData["Gender"].value_counts() / len(purData.Gender)
 
-#compiled no errors 
+#compiled no errors
+
+group_gender_df = purData.groupby("Gender")
+print(group_gender_df)
+
+group_gender_df.count()
+
 
 
     
