@@ -10,6 +10,7 @@ purData = pd.DataFrame(purchaseData)
 
 '''purData.head() # no errors'''
 
+
 def prchAnlys()
 totalPlayers = purData["SN"].count()
     t_P = totalPlayers.sum()
@@ -25,3 +26,17 @@ totalRev = purData["Price"].sum()
     print (totalRev)
         
     print(purData["Item Name"].value_counts())
+    
+def PurGen()
+
+genData = purData["Gender"].value_counts()
+print (genData)
+
+purData["Gender"].value_counts() / len(purData.Gender)
+
+#compiled no errors 
+
+
+    
+    
+
