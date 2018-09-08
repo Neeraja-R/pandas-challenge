@@ -53,7 +53,14 @@ byPerson["Price"].mean()
 
 def AgeDem()
 
+my_list_age = purData["Age"].tolist()
 
+maxAge = max(my_list_age)
+minAge = min(my_list_age)
+
+binsAge = pd.interval_range(0, maxAge, periods=None, freq=4, name=None, closed="right")
+
+binning = pd.cut(purData["Purchase ID"], binsAge, labels=None)
 
 
 
