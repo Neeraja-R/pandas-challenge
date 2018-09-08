@@ -41,19 +41,21 @@ print(group_gender_df)
 
 group_gender_df.count()
 
-'''purchase count = count of item ids per gender
-avg purchase price = take a single column of the table and divide it by the len
-total purchase price =
-avg purchase total per perosn = take a new df per person and take priece and get avg by dividing by len'''
-
 group_gender_df["Purchase ID"].count()
 
 group_gender_df["Price"].mean()
 
-group_gender_df["Price"].sum()
+byPerson = purData.groupby("SN")
+
+byPerson.head()
+
+byPerson["Price"].mean()
+
+def AgeDem()
 
 
-grouped_vehicles_df["Fuel Economy (mpg)"].mean()
+
+
 
     
     
