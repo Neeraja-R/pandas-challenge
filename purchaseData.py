@@ -10,41 +10,36 @@ purData = pd.DataFrame(purchaseData)
 
 '''purData.head() # no errors'''
 
-
-# purchaseAnalysis()
+#total players
 totalPlayers = (purData["SN"].count()).sum()
 tp_df = pd.DataFrame({"Total Players": [totalPlayers]})
 tp_df
 
+totalPlayers
 
-totalPlayers = (purData["SN"].count()).sum()
-tp_df = pd.DataFrame({"Total Players": [totalPlayers]})
-tp_df
-
-purchA = pd.DataFrame({"unique"})
-
+#purchase analysis
 avgPur_price = purData["Price"].mean()
-avgPur_price
 
 totalPurN = len(purData)
-print (totalPurN)
 
 totalRev = purData["Price"].sum()
-print (totalRev)
 
 uniqueI = purData["Item ID"].value_counts()
 uIt = [uniqueI]
-unique = len(uIt[0])
+unique_I = len(uIt[0])
+
+purchA_df = pd.DataFrame({"Total-Unique Items": [unique_I], "Avg-Purchase Price": [avgPur_price], "Total-Number of Purchases": [totalPurN], "Total Revenue": [totalRev]})
+
+purchA_df
 
 
-def GenderDem()
+# GenderDem()
 
 genData = purData["Gender"].value_counts()
 print (genData)
 
 purData["Gender"].value_counts() / len(purData.Gender)
 
-#compiled no errors
 
 group_gender_df = purData.groupby("Gender")
 print(group_gender_df)
