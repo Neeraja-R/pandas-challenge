@@ -101,12 +101,38 @@ totalPurValue = pd.DataFrame(purData.groupby('SN')['Price'].sum())
 sortedPurVal = totalPurValue.sort_values("Price", ascending=False)
 sortByTPV = sortedPurVal.head()
 
-sortByTPV
+print(sortByTPV)
 
+#avg purchace price
 avgPurPrice = pd.DataFrame(purData.groupby('SN')['Price'].mean())
 
 sortedPurPrice = avgPurPrice.sort_values("Price", ascending=False)
+
 sortByAPP = sortedPurPrice.head()
+
+print(sortByAPP)
+
+#purchase count
+
+PurCount = pd.DataFrame(purData["SN"].value_counts())
+
+purchCount = PurCount.sort_values("SN", ascending=False)
+
+purCountSN = purchCount.head()
+
+print(purCountSN)
+
+
+
+def popItems()
+itPop = pd.DataFrame(purData["Purchase ID"].value_counts())
+
+
+
+
+
+
+
 
 
 
