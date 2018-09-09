@@ -125,7 +125,29 @@ print(purCountSN)
 
 
 def popItems()
-itPop = pd.DataFrame(purData["Purchase ID"].value_counts())
+
+#this gives item ID count of top 5 pop items
+
+itPopu = purData.groupby("Item Name")
+itPopuCt = itPopu.count()
+itPopuCt_sort = itPopuCt.sort_values("Purchase ID", ascending=False)
+listPopu = [itPopuCt_sort.head()]
+print(listPopu)
+
+
+#come back to finish and format this
+
+
+def MostProf()
+
+#this creates a df with item name and price, sorted
+
+profIt = (purData.groupby("Item Name")["Price"]).sum()
+profIt_pd = pd.DataFrame(profIt)
+profIt_sorted = profIt_pd.sort_values("Price", ascending=False)
+profIt_sorted
+
+
 
 
 
@@ -148,7 +170,7 @@ itPop = pd.DataFrame(purData["Purchase ID"].value_counts())
 
 
 
-'''top spenders: df by SN, count to get every name. This should give you item id sorted by name...that is purchase count. Then take price from this df and get mean for avg. For total use sum'''
+
     
     '''most popular items: make df of Item Name. Use count, then sort list. Use head to get top 5. '''
         
