@@ -8,7 +8,7 @@ purchaseData = pd.read_csv(purchase_data)
 
 purData = pd.DataFrame(purchaseData)
 
-'''purData.head() # no errors'''
+# purData no errors
 
 #total players
 totalPlayers = (purData["SN"].count()).sum()
@@ -35,14 +35,17 @@ purchA_df
 
 # GenderDem()
 
-genData = purData["Gender"].value_counts()
+genData = [purData["Gender"].value_counts()]
 print (genData)
 
-purData["Gender"].value_counts() / len(purData.Gender)
+genP = [(purData["Gender"].value_counts() / len(purData.Gender))*100]
+print(genP)
 
+
+# purchasing anlysis (gender)
 
 group_gender_df = purData.groupby("Gender")
-print(group_gender_df)
+group_gender_df
 
 group_gender_df.count()
 
@@ -56,7 +59,9 @@ byPerson.head()
 
 byPerson["Price"].mean()
 
-def AgeDem()
+
+
+# AgeDem()
 
 my_list_age = purData["Age"].tolist() #age cat. turned into list
 
