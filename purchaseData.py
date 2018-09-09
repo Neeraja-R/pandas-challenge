@@ -84,7 +84,32 @@ avgPerson = purData.groupby("SN")
 totalPer_Pur = (avgPerson["Price"].mean()/purData["Price"].mean())
 print(totalPer_Pur)
 
-#need to merge all the values here 
+#need to merge all the values here
+
+
+
+
+
+
+
+
+def TopSpenders()
+
+#total purchase value
+totalPurValue = pd.DataFrame(purData.groupby('SN')['Price'].sum())
+
+sortedPurVal = totalPurValue.sort_values("Price", ascending=False)
+sortByTPV = sortedPurVal.head()
+
+sortByTPV
+
+avgPurPrice = pd.DataFrame(purData.groupby('SN')['Price'].mean())
+
+sortedPurPrice = avgPurPrice.sort_values("Price", ascending=False)
+sortByAPP = sortedPurPrice.head()
+
+
+
 
 
 
