@@ -42,22 +42,33 @@ genP = [(purData["Gender"].value_counts() / len(purData.Gender))*100]
 print(genP)
 
 
-# purchasing anlysis (gender)
+#gives by gender
 
-group_gender_df = purData.groupby("Gender")
-group_gender_df
+group_gender = purData.groupby("Gender")
 
-group_gender_df.count()
+genderlist = group_gender.count()     #give by gender: pur count(ID), needs title
+glist = pd.DataFrame(genderlist.iloc[: , 0:1])
+print(glist)
 
-group_gender_df["Purchase ID"].count()
+grgnd = group_gender["Price"].mean()    #gives avg pur price by gender
+print(grgnd)
 
-group_gender_df["Price"].mean()
+totpv = group_gender["Price"].sum() #gives total pur value by gender
+print(totpv)
+totpv.columns = ["Total Purchase Price"]
 
-byPerson = purData.groupby("SN")
 
-byPerson.head()
 
-byPerson["Price"].mean()
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -93,6 +104,8 @@ print(ageGroup["Price"].sum()) #total purchase value
 avgPerson = purData.groupby("SN")
 totalPer_Pur = (avgPerson["Price"].mean()/purData["Price"].mean())
 print(totalPer_Pur)
+
+
 
 #need to merge all the values here
 
