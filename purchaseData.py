@@ -42,7 +42,7 @@ genP = [(purData["Gender"].value_counts() / len(purData.Gender))*100]
 print(genP)
 
 
-#gives by gender
+#Purchasing Analysis(Gender)
 
 group_gender = purData.groupby("Gender")
 
@@ -55,19 +55,15 @@ print(grgnd)
 
 totpv = group_gender["Price"].sum() #gives total pur value by gender
 print(totpv)
-totpv.columns = ["Total Purchase Price"]
+#totpv.columns = ["Total Purchase Price"]
 
+profIt = (purData.groupby("Item Name")["Price"]).sum()
+profIt_pd = pd.DataFrame(profIt)
+profIt_sorted = profIt_pd.sort_values("Price", ascending=False)
+profIt_sorted.head()
 
-
-
-
-
-
-
-
-
-
-
+profip_df = pd.DataFrame{"Final Critic": 4.88, "Oathbreaker, Last Hope of the Breaking Storm": 4.88, "Final Critic": 4.88"}
+profip_df   # item name and price
 
 
 
@@ -79,7 +75,6 @@ my_list_age = purData["Age"].tolist() #age cat. turned into list
 maxAge = max(my_list_age)
 minAge = min(my_list_age)
 
-# min/max to help make bins [(0, 4] < (4, 8] < (8, 12] < (12, 16] ... (28, 32] < (32, 36] < (36, 40] < (40, 44]]
 
 bins = [0, 10, 14, 18, 22, 26, 30, 34, 38, 42, 46]
 group_labels = ["<10 y/o", "10-14 y/o", "14-18 y/o", "18-22 y/o", "22-26 y/o", "26-30 y/o", "30-34 y/o", "34-38 y/o", "38-42 y/o", "42-46 y/o"]
@@ -91,20 +86,30 @@ purData["Age Group"] = pd.cut(purData["Age"], bins, labels=group_labels)
 purData.head()
 
 #bins created, added as "age group" new column
+df = pd.DataFrame({"A": [1,2,3],
+                  "B": [2,4,8]})
+new_column = pd.Series([1,2,3])
+df = pd.concat([df, new_column.rename("C")], axis=1)
+df
 
 ageGroup = purData.groupby("Age Group")
 
-print(ageGroup["Purchase ID"].count()) #purchase count
+df_pc = ageGroup["Purchase ID"].count() #purchase count
+df_pc
 
-print(ageGroup["Price"].mean()) #avg purchase price
 
-print(ageGroup["Price"].sum()) #total purchase value
+df_app = ageGroup["Price"].mean() #avg purchase price
+df_app
 
+df_tp = ageGroup["Price"].sum() #total purchase value
+df_tp
+
+
+pd.merge(left_frame, right_frame, on='key', how='inner')
 #this is avg mean price for all divided by average mean price per person
 avgPerson = purData.groupby("SN")
 totalPer_Pur = (avgPerson["Price"].mean()/purData["Price"].mean())
 print(totalPer_Pur)
-
 
 
 #need to merge all the values here
@@ -113,10 +118,7 @@ print(totalPer_Pur)
 
 
 
-
-
-
-def TopSpenders()
+# TopSpenders()
 
 #total purchase value
 totalPurValue = pd.DataFrame(purData.groupby('SN')['Price'].sum())
@@ -147,7 +149,7 @@ print(purCountSN)
 
 
 
-def popItems()
+# popItems()
 
 #this gives item ID count of top 5 pop items
 
@@ -157,47 +159,21 @@ itPopuCt_sort = itPopuCt.sort_values("Purchase ID", ascending=False)
 listPopu = [itPopuCt_sort.head()]
 print(listPopu)
 
+itmid = [92, 178, 141, 82, 108]
+itpr = [$4.88, $4.43, $3.19, $4.9, $3.53]
+Totpc = [$448.9, $752.9, $449.8, $401.8, $381.2]
 
-#come back to finish and format this
 
-
-def MostProf()
+# MostProf()
 
 #this creates a df with item name and price, sorted
 
 profIt = (purData.groupby("Item Name")["Price"]).sum()
 profIt_pd = pd.DataFrame(profIt)
 profIt_sorted = profIt_pd.sort_values("Price", ascending=False)
-profIt_sorted
+profIt_sorted.head()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-'''get purchase id and age in an i loc, then sort. create a loop by age...assign to every 4 years and create a df of this. merge bins df and looped assignments df'''
-
-
-
-
-    
-    '''most popular items: make df of Item Name. Use count, then sort list. Use head to get top 5. '''
-        
-        '''most profitable items: df by item id, get sum, then sort by price.'''
-    
-    
+itmidprof = [92, 178, 82, 145, 103]
+itprprof = [4.88, 4.43, 4.90, 4.58, 4.35]
+purcoutprof = [13, 12, 9, 9, 8]
 
